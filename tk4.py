@@ -1,5 +1,6 @@
 import sys
 from tkinter import *
+from tkinter import filedialog
 
 
 def mHello():
@@ -8,6 +9,10 @@ def mHello():
 
 def myNew():
     mlabel1 = Label(myApp,text="YO").pack()
+
+def myOpen():
+    myOpen = filedialog.askopenfile()
+    mlabel4 = Label(myApp,text=myOpen).pack()
 
 def mAbout():
     messagebox.showinfo(title="About",message="This is the about box")
@@ -42,7 +47,7 @@ filemenu = Menu(menubar, tearoff=0)
 
 #Add the sub headings to the file menu
 filemenu.add_command(label="New", command=myNew)
-filemenu.add_command(label="Open")
+filemenu.add_command(label="Open", command=myOpen)
 filemenu.add_command(label="Save As...")
 filemenu.add_command(label="Close", command=mQuit)
 
